@@ -1,7 +1,7 @@
 description: A simple caching system
-vsn: 0.1.0
+vsn: 1
 modules:
-  - sc_app
+  - sc_app  
   - sc_sup
 registered:
   - sc_sup
