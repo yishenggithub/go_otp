@@ -10,10 +10,10 @@ import (
 type App struct {
 	Description  string
 	Vsn          string
-	Modules      string
-	Registered   string
-	Applications string
-	Mod          string
+	Modules      [] string
+	Registered   [] string
+	Applications [] string
+	Mod          [] string
 }
 
 // https://stackoverflow.com/questions/68562229/cannot-unmarshal-seq-into-string-in-go
