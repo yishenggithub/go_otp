@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-type App struct {
+type app struct {
 	Description  string
 	Vsn          string
 	Modules      []string
@@ -16,19 +16,10 @@ type App struct {
 	Mod          []string
 }
 
-type TestServer struct {
-	Server    genServer
-	SupServer genServer
-}
-
-func (app *App) startLink() {
-	println("startLink")
-}
-
 // https://stackoverflow.com/questions/68562229/cannot-unmarshal-seq-into-string-in-go
 
 func main() {
-	app := App{}
+	testApp := app{}
 
 	// 读配置yml，转成app结构
 	yamlFile, err := ioutil.ReadFile("simple_cache.yml")
@@ -37,23 +28,24 @@ func main() {
 		log.Fatalf("yamlFile.Get err %v", err)
 	}
 
-	err = yaml.Unmarshal(yamlFile, &app)
+	err = yaml.Unmarshal(yamlFile, &testApp)
 
 	if err != nil {
 		log.Fatalf("Unmarshal: %v", err)
 	}
 
-	log.Println("conf", app)
+	log.Println("conf", testApp)
 
-	fmt.Println(app.Registered)
+	fmt.Println(testApp.Registered)
 
 	// 启动sup
 	// 怎么根据string获得这个struct
-	app.startLink()
 
-	var testServer genServer
+	// 怎么把值放进去
+	var t genServer
+	t = &testServer{}
 
-	testServer := TestServer{}
+	t.init()
 
-	testServer.init()
+	// 怎么交互测试效果
 }
