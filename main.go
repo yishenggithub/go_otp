@@ -45,7 +45,9 @@ func main() {
 	var t genServer
 	t = &testServer{}
 
-	t.init()
+	ch := make(chan string)
 
-	// 怎么交互测试效果
+	go t.init(ch)
+
+	// 怎么交互测试效果, 想象好像能go了，要么标准输入输出，要么tcp
 }
