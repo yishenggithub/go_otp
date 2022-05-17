@@ -30,7 +30,7 @@ func (t *testServer) handleInfo(ch chan string) {
 	info = <-ch
 	fmt.Println("test")
 	fmt.Println(info)
-	switch "handle_info_test" {
+	switch "handle_info_test" { // 不能用字符串吗
 	case "handle_info_test":
 		fmt.Println("handle_info_test")
 	}
