@@ -1,10 +1,10 @@
 package main
 
 type genServer interface {
-	init()
-	startLink()
+	init(chan string)
+	startLink(chan string)
 	//handleCall (string)
 	//handleCast (string)
-	//handleInfo (string)
+	handleInfo(chan string)
 	//terminate ()
 }
